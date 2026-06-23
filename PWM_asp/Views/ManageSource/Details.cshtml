@@ -1,0 +1,26 @@
+﻿@model PWM_asp.Models.Source
+
+@{
+    ViewData["Title"] = "Source Details";
+}
+
+<h2>Source Details</h2>
+
+<div class="card">
+    <div class="card-body">
+
+        <dl class="row">
+
+            <dt class="col-sm-3">Source Name</dt>
+            <dd class="col-sm-9">@Model.SourceName</dd>
+
+            <dt class="col-sm-3">Description</dt>
+            <dd class="col-sm-9">@Model.Description</dd>
+
+        </dl>
+
+        <a asp-action="Edit" asp-route-id="@Model.SourceId" class="btn btn-warning">Edit</a>
+        <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+
+    </div>
+</div>

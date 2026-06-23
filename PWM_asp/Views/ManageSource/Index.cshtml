@@ -1,0 +1,30 @@
+﻿@model IEnumerable<PWM_asp.Models.Source>
+
+@{
+    ViewData["Title"] = "Sources";
+}
+
+<h2>Sources</h2>
+
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th>Source Name</th>
+            <th>Description</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.SourceName</td>
+                <td>@item.Description</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.SourceId" class="btn btn-sm btn-primary">Details</a>
+                    <a asp-action="Edit" asp-route-id="@item.SourceId" class="btn btn-sm btn-warning">Edit</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
