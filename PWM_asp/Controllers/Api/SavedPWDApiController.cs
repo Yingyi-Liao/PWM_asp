@@ -8,16 +8,16 @@ using PWM_asp.Services;
 
 namespace PWM_asp.Controllers.Api
 {
-    [Route("api/[controller]")]
+    [Route("api/SavedPWD")]
     [ApiController]
     [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
-    public class SavedPWDController : ControllerBase
+    public class SavedPWDApiController : ControllerBase
     {
         private readonly ApplicationDbContext _context;
         private readonly IEncryptionService _encryption;
         private readonly UserManager<AppUser> _userManager;
 
-        public SavedPWDController(ApplicationDbContext context, IEncryptionService encryption, UserManager<AppUser> userManager)
+        public SavedPWDApiController(ApplicationDbContext context, IEncryptionService encryption, UserManager<AppUser> userManager)
         {
             _context = context;
             _encryption = encryption;
@@ -100,7 +100,7 @@ namespace PWM_asp.Controllers.Api
                 EncryptedPWD = encryptedPwd,
                 EncryptedDataKey = encryptedKey,
                 UserId = userId,
-                CreatedAt = DateTime.UtcNow
+                CreatedAt = DateTime.Now
             };
 
             _context.SavedPWDs.Add(saved);
@@ -124,7 +124,7 @@ namespace PWM_asp.Controllers.Api
 
             saved.Account = model.Account;
             saved.Description = model.Description;
-            saved.UpdatedAt = DateTime.UtcNow;
+            saved.UpdatedAt = DateTime.Now;
 
             if (!string.IsNullOrWhiteSpace(model.Password))
             {

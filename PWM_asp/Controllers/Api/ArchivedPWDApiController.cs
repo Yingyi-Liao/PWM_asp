@@ -8,16 +8,16 @@ using PWM_asp.Services;
 
 namespace PWM_asp.Controllers.Api
 {
-    [Route("api/[controller]")]
+    [Route("api/ArchivedPWD")]
     [ApiController]
     [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
-    public class ArchivedPWDController : ControllerBase
+    public class ArchivedApiPWDController : ControllerBase
     {
         private readonly ApplicationDbContext _context;
         private readonly IEncryptionService _encryption;
         private readonly UserManager<AppUser> _userManager;
 
-        public ArchivedPWDController(ApplicationDbContext context, IEncryptionService encryption, UserManager<AppUser> userManager)
+        public ArchivedApiPWDController(ApplicationDbContext context, IEncryptionService encryption, UserManager<AppUser> userManager)
         {
             _context = context;
             _encryption = encryption;

@@ -116,7 +116,7 @@ public class SavedPWDController : Controller
             EncryptedPWD = encryptedPwd,
             EncryptedDataKey = encryptedKey,
             UserId = _userManager.GetUserId(User),
-            CreatedAt = DateTime.UtcNow
+            CreatedAt = DateTime.Now
         };
 
         _context.SavedPWDs.Add(saved);
@@ -178,7 +178,7 @@ public class SavedPWDController : Controller
 
         saved.Account = model.Account;
         saved.Description = model.Description;
-        saved.UpdatedAt = DateTime.UtcNow;
+        saved.UpdatedAt = DateTime.Now;
 
         if (!string.IsNullOrWhiteSpace(model.Password))
         {

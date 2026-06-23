@@ -8,7 +8,7 @@ using System.Text;
 
 namespace PWM_asp.Controllers.Api
 {
-    [Route("api/[controller]")]
+    [Route("api/Auth")]
     [ApiController]
     public class AuthController : ControllerBase
     {
