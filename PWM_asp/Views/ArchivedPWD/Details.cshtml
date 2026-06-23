@@ -1,0 +1,69 @@
+﻿@model PWM_asp.Models.ArchivedPWD
+
+@{
+    ViewData["Title"] = "Archived Password Details";
+}
+
+<h2>Archived Password Details</h2>
+
+<div class="card">
+    <div class="card-body">
+
+        <dl class="row">
+
+            <dt class="col-sm-3">Account</dt>
+            <dd class="col-sm-9">@Model.Account</dd>
+
+            <dt class="col-sm-3">Source</dt>
+            <dd class="col-sm-9">@Model.Source?.SourceName</dd>
+
+            <dt class="col-sm-3">Description</dt>
+            <dd class="col-sm-9">@Model.Description</dd>
+
+            <dt class="col-sm-3">Encrypted Password</dt>
+            <dd class="col-sm-9">
+                <code>@Model.EncryptedPWD</code>
+            </dd>
+
+            <dt class="col-sm-3">Encrypted Data Key</dt>
+            <dd class="col-sm-9">
+                <code>@Model.EncryptedDataKey</code>
+            </dd>
+
+            <dt class="col-sm-3">Archived At</dt>
+            <dd class="col-sm-9">@Model.ArchivedAt.ToString("dd/MM/yyyy HH:mm")</dd>
+
+            <dt class="col-sm-3">Archived By</dt>
+            <dd class="col-sm-9">@Model.ArchivedBy</dd>
+
+            <dt class="col-sm-3">User</dt>
+            <dd class="col-sm-9">@Model.User?.FirstName @Model.User?.LastName</dd>
+
+        </dl>
+        @if (TempData["RevealedPassword"] != null)
+        {
+            <div class="alert alert-info">
+                <strong>Password:</strong> @TempData["RevealedPassword"]
+            </div>
+        }
+        @if (TempData["RevealedPassword"] != null)
+        {
+            <div class="alert alert-info mt-3">
+                <strong>Password:</strong>
+                <span id="revealedPwd">@TempData["RevealedPassword"]</span>
+
+                <button type="button" class="btn btn-sm btn-outline-secondary ms-2"
+                        onclick="copyRevealedPwd()">
+                    Copy
+                </button>
+            </div>
+        }
+
+        <a asp-action="Reveal" asp-route-id="@Model.ArchivedPWDId" class="btn btn-warning">
+            Show Password
+        </a>
+
+        <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+
+    </div>
+</div>

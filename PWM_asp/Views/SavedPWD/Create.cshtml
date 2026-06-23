@@ -1,0 +1,45 @@
+﻿@model SavedPWDViewModel
+
+@{
+    ViewData["Title"] = "Create Password";
+}
+
+<h2>Create Password</h2>
+
+<form asp-action="Create">
+
+    <div class="form-group mb-3">
+        <label asp-for="Account"></label>
+        <input asp-for="Account" class="form-control" />
+        <span asp-validation-for="Account" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mb-3">
+        <label asp-for="SourceName">Source</label>
+        <input asp-for="SourceName" class="form-control" />
+        <span asp-validation-for="SourceName" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mb-3">
+        <label asp-for="Password"></label>
+        <div class="input-group">
+            <input type="password" class="form-control" id="pwdBox" name="Password" />
+            <button type="button" class="btn btn-secondary" onclick="generatePassword()">Generate</button>
+            <button type="button" class="btn btn-outline-secondary" onclick="togglePwd()">Show</button>
+            <button type="button" class="btn btn-outline-secondary" onclick="copyPwd()">Copy</button>
+        </div>
+        <span asp-validation-for="Password" class="text-danger"></span>
+        <div id="strengthMeter" class="mt-1 text-muted"></div>
+
+    </div>
+
+    <div class="form-group mb-3">
+        <label asp-for="Description"></label>
+        <textarea asp-for="Description" class="form-control"></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form>
+
+<script src="~/js/dodgeTheNet.js"></script>
