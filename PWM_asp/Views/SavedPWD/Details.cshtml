@@ -35,12 +35,6 @@
         </dl>
         @if (TempData["RevealedPassword"] != null)
         {
-            <div class="alert alert-info">
-                <strong>Password:</strong> @TempData["RevealedPassword"]
-            </div>
-        }
-        @if (TempData["RevealedPassword"] != null)
-        {
             <div class="alert alert-info mt-3">
                 <strong>Password:</strong>
                 <span id="revealedPwd">@TempData["RevealedPassword"]</span>

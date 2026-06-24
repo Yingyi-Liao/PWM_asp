@@ -251,4 +251,21 @@ public class SavedPWDController : Controller
         return RedirectToAction("Details", new { id });
     }
 
+    [HttpPost]
+    public async Task<IActionResult> RevealAjax(int id)
+    {
+        var userId = _userManager.GetUserId(User);
+
+        var saved = await _context.SavedPWDs
+                    .Where(s => s.UserId == userId)
+                    .FirstOrDefaultAsync(s => s.SavedPWDId == id);
+
+        if (saved == null)
+            return NotFound();
+
+        var decrypted = _encryption.Decrypt(saved.EncryptedPWD, saved.EncryptedDataKey);
+
+        return Json(new { password = decrypted });
+    }
+
 }

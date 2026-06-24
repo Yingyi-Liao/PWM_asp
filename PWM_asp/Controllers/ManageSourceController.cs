@@ -47,6 +47,7 @@ public class ManageSourceController : Controller
         var source = await _context.Sources.FindAsync(id);
         if (source == null) return NotFound();
 
+        source.SourceName = model.SourceName;
         source.Description = model.Description;
 
         await _context.SaveChangesAsync();
