@@ -13,7 +13,11 @@ Check:<br>
   Enable certificate privacy<br>
 Set a password<br>
 Save the .pfx file as cert.pfx to the PWM_asp folder<br>
-
+<br>
 suggest using with published version with  appsetting.json production in production environment<br>
 while using in production/development environment<br>
 setting environment variable PWM_MASTER_KEY with base64 format is required for encryption master key<br>
+<br>
+WARNING:<br>
+for safe hosting make sure using encrypted providers with https<br>
+if hosting in local environment, make sure all devices are trusted and firewall ready<br>
