@@ -133,7 +133,7 @@ namespace PWM_asp.Data.Migrations
                         d.EncryptedDataKey,
                         d.SourceId,
                         d.Description,
-                        GETUTCDATE(),
+                        GETDATE(),
                         CASE 
                             WHEN EXISTS (SELECT 1 FROM inserted WHERE inserted.SavedPWDId = d.SavedPWDId)
                                 THEN 'UPDATE'

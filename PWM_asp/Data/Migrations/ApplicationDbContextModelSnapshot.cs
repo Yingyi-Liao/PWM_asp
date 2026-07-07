@@ -317,6 +317,8 @@ namespace PWM_asp.Data.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("SavedPWDs");
+
+                    b.HasAnnotation("SqlServer:UseSqlOutputClause", false);
                 });
 
             modelBuilder.Entity("PWM_asp.Models.Source", b =>
