@@ -5,6 +5,7 @@ where you need to use your own gmail(or other smtp service provider) smtp servic
 <br>
 https implementation is optional<br>
 if you want to save some headache for certificate configuration, just remove https parts in appsettings.json<br>
+However, without https, decrypted password cannot be copied to another machine for obvious reason<br>
 otherwise export certificate from certlm.msc -> Personal -> Certificates -> https certificate issued to yout domain or machine name<br>
 choose:<br>
   yes, export the private key with format PFX<br>
